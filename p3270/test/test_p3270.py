@@ -20,7 +20,7 @@ class TestP3270Client(unittest.TestCase):
         self.popenPatcher = patch('subprocess.Popen')
         self.popenMock = self.popenPatcher.start()
         self.client1 = P3270Client(configFile="p3270_ok.cfg")
-        self.client3 = P3270Client(configFile="p3270_tls_ok.cfg")
+        # self.client3 = P3270Client(configFile="p3270_tls_ok.cfg")
         with open('screen.data', 'r') as fData:
             self.screenData = fData.read().encode()
         with open('screen.txt', 'r') as fText:

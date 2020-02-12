@@ -1,4 +1,5 @@
 import os
+import platform
 import re
 import subprocess
 import logging
@@ -106,6 +107,12 @@ class P3270Client():
         """ Construct the list of arguments to be used for interacting with s3270
         """
         self.args = ['s3270']
+
+        # Check for Windows 
+        
+        if platform.system() == 'Windows':
+            self.args[0] = 'ws3720'
+
         if self.conf.isValid():
             self.args.append('-model')
             self.args.append(self.conf.modelName)
